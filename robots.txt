@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://exemplu-domeniu.ro/sitemap.xml
