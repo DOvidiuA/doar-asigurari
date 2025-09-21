@@ -1,111 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calculator RCA (OCR) – DOAR Asigurări</title>
-  <meta name="description" content="Asigurări pentru casă, auto, călătorii și viață. Ofertare rapidă, consultanță clară și emitere online. Cere o ofertă acum!" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="/rca-calculator.html"/>
-  <link rel="stylesheet" href="assets/styles.css" />
-  <script defer src="assets/app.js"></script>
-  <meta name="theme-color" content="#0b1e3a" />
-  <meta property="og:title" content="Calculator RCA (OCR) – DOAR Asigurări" />
-  <meta property="og:description" content="Asigurări pentru casă, auto, călătorii și viață. Ofertare rapidă, consultanță clară și emitere online. Cere o ofertă acum!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="/rca-calculator.html" />
-  <meta property="og:image" content="/assets/og.png" />
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "DOAR Asigurări", "url": "https://exemplu-domeniu.ro/", "telephone": "+40XXXXXXXXX", "address": {"@type": "PostalAddress", "streetAddress": "Bld. Exemplu 1", "addressLocality": "Timișoara", "postalCode": "300000", "addressCountry": "RO"}, "areaServed": "RO", "sameAs": ["https://facebook.com/USERNAME", "https://instagram.com/USERNAME", "https://www.linkedin.com/in/USERNAME"]}
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dănciulescu Ovidiu - Aurelian P.F.I. — Asigurări</title>
+  <meta name="description" content="Soluții de asigurări pentru casă, auto, călătorii și viață. Consultanță clară, oferte rapide, emitere digitală.">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header>
-    <div class="container nav" role="navigation" aria-label="Navigare principală">
-      <a class="brand" href="index.html" aria-label="DOAR Asigurări homepage">
-        <span class="logo" aria-hidden="true">D</span>
-        <b>DOAR Asigurări</b>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="servicii.html">Servicii</a></li>
-          <li><a href="avantaje.html">Avantaje</a></li>
-          <li><a href="intrebari.html">Întrebări</a></li>
-          <li><a href="rca-calculator.html">Calculator RCA (OCR)</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <a class="cta" href="contact.html">Cere ofertă</a>
-      <button class="burger" id="burger" aria-label="Deschide meniul">☰</button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<header class="header">
+  <div class="nav container">
+    <a href="index.html" class="brand">Dănciulescu Ovidiu - Aurelian P.F.I.</a>
+    <nav class="menu" id="menu">
       <a href="servicii.html">Servicii</a>
       <a href="avantaje.html">Avantaje</a>
       <a href="intrebari.html">Întrebări</a>
-      <a href="rca-calculator.html">Calculator RCA</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </header>
-  
-<main class="hero">
-  <div class="container">
-    <h1>Calculator RCA (demo) cu OCR</h1>
-    <p class="lead">Încarcă fotografii clare ale talonului / cărții de identitate auto. Vom precompleta formularul cu OCR (în browser, Tesseract.js). *Rezultatul este orientativ — pentru ofertă oficială e necesară validarea manuală.*</p>
+      <a href="rca-calculator.html">Calculator RCA (OCR)</a>
+      <a href="contact.html" class="cta">Contact</a>
+    </nav>
   </div>
-</main>
-<section>
-  <div class="container">
-    <div class="card">
-      <h3>1) Încarcă imagini</h3>
-      <input type="file" id="imgInput" accept="image/*" multiple />
-      <progress id="ocrProgress" value="0" max="1" style="width:100%; margin-top:10px; display:none"></progress>
-      <pre id="ocrRaw" class="muted" style="white-space:pre-wrap; max-height:200px; overflow:auto; margin-top:10px"></pre>
-    </div>
-    <div class="card" style="margin-top:18px">
-      <h3>2) Date identificate & formular</h3>
-      <form id="rcaForm" class="grid" style="grid-template-columns:repeat(2,1fr)">
-        <div class="field"><label>Nr. înmatriculare</label><input id="nr" name="nr" placeholder="TM 01 ABC"></div>
-        <div class="field"><label>VIN (serie șasiu)</label><input id="vin" name="vin" placeholder="WVWZZZ1JZXW000000"></div>
-        <div class="field"><label>Nume proprietar</label><input id="nume" name="nume" placeholder="Popescu Ion"></div>
-        <div class="field"><label>CNP</label><input id="cnp" name="cnp" placeholder="1XXXXXXXXXXXXX"></div>
-        <div class="field"><label>Capacitate cilindrică (cm³)</label><input id="cc" name="cc" type="number" placeholder="1598"></div>
-        <div class="field"><label>An fabricație</label><input id="an" name="an" type="number" placeholder="2018"></div>
-        <div class="field" style="grid-column:1/-1"><label>Adresa email (pentru ofertă)</label><input id="email" name="email" type="email" placeholder="adresa@exemplu.ro"></div>
-        <div class="field" style="grid-column:1/-1"><label><input type="checkbox" id="consentRCA" required> Sunt de acord cu prelucrarea datelor pentru ofertare și reminder.</label></div>
-        <button class="btn primary" type="button" id="estimateBtn">Calculează estimativ</button>
-      </form>
-      <div id="est" class="muted" style="margin-top:10px"></div>
-    </div>
-  </div>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-<script defer src="assets/ocr.js"></script>
+</header>
 
-  <footer id="gdpr">
-    <div class="container foot">
-      <div>
-        <b>DOAR Asigurări</b>
-        <small>Consultanță în asigurări. *Înlocuiește cu statutul legal corect (agent / broker / colaborator) și numărul de înregistrare dacă este cazul.*</small>
-        <small>Acest site utilizează datele doar pentru ofertare și comunicare contractuală. Detalii în Politica de confidențialitate.</small>
-        <div class="copy">© <span id="year"></span> DOAR Asigurări • Toate drepturile rezervate</div>
+<main>
+  <section class="container section">
+    <h1>Calculator RCA (demo) cu OCR</h1>
+    <p>Încarcă fotografii clare ale talonului / cărții de identitate auto. Vom precompleta formularul cu OCR (în browser, Tesseract.js). <em>Rezultatul este orientativ — pentru ofertă oficială e necesară validarea manuală.</em></p>
+
+    <div class="grid mt-4">
+      <div class="card">
+        <h3>1) Încarcă imagini</h3>
+        <input type="file" accept="image/*" multiple>
       </div>
-      <div>
-        <b>Linkuri utile</b>
-        <small><a href="servicii.html">Servicii</a></small>
-        <small><a href="avantaje.html">Avantaje</a></small>
-        <small><a href="intrebari.html">Întrebări</a></small>
-        <small><a href="contact.html">Contact</a></small>
-      </div>
-      <div>
-        <b>Social</b>
-        <small><a href="https://facebook.com/USERNAME" target="_blank" rel="noopener">Facebook</a></small>
-        <small><a href="https://instagram.com/USERNAME" target="_blank" rel="noopener">Instagram</a></small>
-        <small><a href="https://linkedin.com/in/USERNAME" target="_blank" rel="noopener">LinkedIn</a></small>
+      <div class="card">
+        <h3>2) Date identificate & formular</h3>
+        <label class="mt-3">Nr. înmatriculare</label><input>
+        <label class="mt-3">VIN (serie șasiu)</label><input>
+        <label class="mt-3">Nume proprietar</label><input>
+        <label class="mt-3">CNP</label><input>
+        <label class="mt-3">Capacitate cilindrică (cm³)</label><input type="number">
+        <label class="mt-3">An fabricație</label><input type="number">
+        <label class="mt-3">Adresa email (pentru ofertă)</label><input type="email">
+        <div class="mt-3">
+          <label><input type="checkbox"> Sunt de acord cu prelucrarea datelor pentru ofertare și reminder.</label>
+        </div>
+        <div class="mt-3">
+          <button>Calculează estimativ</button>
+          <a class="btn" target="_blank" rel="noopener" href="https://wa.me/40765290118?text=Salut%21%20Am%20nevoie%20de%20o%20asigurare%21">Cere pe WhatsApp</a>
+        </div>
       </div>
     </div>
-  </footer>
-  <a class="wa" href="https://wa.me/40765290118" target="_blank" aria-label="Deschide conversație WhatsApp" title="WhatsApp">
-    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.59c-.26-.13-1.53-.75-1.77-.84-.24-.09-.41-.13-.59.13-.18.26-.68.84-.83 1.02-.15.17-.31.2-.57.07-.26-.13-1.09-.4-2.08-1.26-.77-.68-1.29-1.52-1.44-1.78-.15-.26-.02-.4.11-.53.11-.11.26-.28.39-.42.13-.15.17-.24.26-.4.09-.17.04-.3-.02-.42-.07-.13-.59-1.43-.81-1.96-.21-.5-.43-.43-.59-.44l-.5-.01c-.17 0-.42.06-.64.3-.22.26-.85.83-.85 2.02s.87 2.34 1 2.5c.13.17 1.71 2.62 4.14 3.68.58.25 1.03.4 1.38.51.58.18 1.12.15 1.54.09.47-.07 1.53-.63 1.75-1.23.22-.6.22-1.11.15-1.22-.06-.1-.23-.16-.49-.29z"/><path d="M26.79 5.21C23.93 2.34 20.11.78 16 .78 7.57.78.75 7.6.75 16.04c0 2.67.7 5.29 2.04 7.61L1.2 30.8l7.29-1.52c2.26 1.23 4.82 1.89 7.51 1.89h.01c8.43 0 15.25-6.82 15.25-15.26 0-4.1-1.59-7.95-4.46-10.7z"/></svg>
-  </a>
+  </section>
+</main>
+<script src="assets/ocr.js" defer></script>
+
+<footer class="footer">
+  <div class="container">
+    <p><strong>Dănciulescu Ovidiu - Aurelian P.F.I.</strong> • CUI: 45903793</p>
+    <p>Telefon: <a href="tel:+40765290118">0765290118</a> • Email: <a href="mailto:asigurari.europol@gmail.com">asigurari.europol@gmail.com</a> •
+       WhatsApp: <a href="https://wa.me/40765290118?text=Salut%21%20Am%20nevoie%20de%20o%20asigurare%21" target="_blank" rel="noopener">scrie pe WhatsApp</a></p>
+    <small>© Dănciulescu Ovidiu - Aurelian P.F.I. • Toate drepturile rezervate</small>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
